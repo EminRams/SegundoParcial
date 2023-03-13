@@ -3,7 +3,6 @@
 namespace Dao\Mnt;
 
 use Dao\Table;
-use DateTime;
 
 class Funciones extends Table
 {

@@ -5,15 +5,20 @@ use Controllers\PublicController;
 use Exception;
 use Views\Renderer;
 
-class Funciones extends PublicController{
+class Funcion extends PublicController{
     private $redirectTo = "index.php?page=Mnt-Funciones";
     private $viewData = array(
         "mode" => "DSP",
         "modedsc" => "",
-        "fncod" => 0,
+        "fncod" => "",
         "fndsc" => "",
         "fnest" => "ACT",
         "fntyp" => "",
+
+        "fntyp_VAL1" => "selected",
+        "fntyp_VAL2" => "",
+        "fntyp_VAL3" => "",
+
         "fnest_ACT" => "selected",
         "fnest_INA" => "",
         "fndsc_error"=> "",
@@ -64,7 +69,7 @@ class Funciones extends PublicController{
         }
         if($this->viewData["mode"] !== "INS") {
             if(isset($_GET['fncod'])){
-                $this->viewData["fncod"] = intval($_GET["fncod"]);
+                $this->viewData["fncod"] = $_GET["fncod"];
             } else {
                 throw new Exception("Id not found on Query Params");
             }
@@ -145,10 +150,12 @@ class Funciones extends PublicController{
 
         $this->viewData["fncod"] = $_POST["fncod"];
         $this->viewData["fndsc"] = $_POST["fndsc"];
-        $this->viewData["fntyp"] = $_POST["fntyp"];
+        
         if($this->viewData["mode"]!=="DEL"){
             $this->viewData["fnest"] = $_POST["fnest"];
+            $this->viewData["fntyp"] = $_POST["fntyp"];
         }
+        
     }
     private function executeAction(){
         switch($this->viewData["mode"]){
@@ -210,6 +217,11 @@ class Funciones extends PublicController{
             \Utilities\ArrUtils::mergeFullArrayTo($tmbFuncionnes, $this->viewData);
             $this->viewData["fnest_ACT"] = $this->viewData["fnest"] === "ACT" ? "selected": "";
             $this->viewData["fnest_INA"] = $this->viewData["fnest"] === "INA" ? "selected": "";
+
+            $this->viewData["fntyp_VAL1"] = $this->viewData["fntyp"] === "VA1" ? "selected": "";
+            $this->viewData["fntyp_VAL2"] = $this->viewData["fntyp"] === "VA2" ? "selected": "";
+            $this->viewData["fntyp_VAL3"] = $this->viewData["fntyp"] === "VA3" ? "selected": "";
+
             $this->viewData["modedsc"] = sprintf(
                 $this->modes[$this->viewData["mode"]],
                 $this->viewData["fndsc"],

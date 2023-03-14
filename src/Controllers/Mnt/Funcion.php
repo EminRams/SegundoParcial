@@ -13,11 +13,11 @@ class Funcion extends PublicController{
         "fncod" => "",
         "fndsc" => "",
         "fnest" => "ACT",
-        "fntyp" => "",
+        "fntyp" => "VA1",
 
-        "fntyp_VAL1" => "selected",
-        "fntyp_VAL2" => "",
-        "fntyp_VAL3" => "",
+        "fntyp_VA1" => "selected",
+        "fntyp_VA2" => "",
+        "fntyp_VA3" => "",
 
         "fnest_ACT" => "selected",
         "fnest_INA" => "",
@@ -218,9 +218,9 @@ class Funcion extends PublicController{
             $this->viewData["fnest_ACT"] = $this->viewData["fnest"] === "ACT" ? "selected": "";
             $this->viewData["fnest_INA"] = $this->viewData["fnest"] === "INA" ? "selected": "";
 
-            $this->viewData["fntyp_VAL1"] = $this->viewData["fntyp"] === "VA1" ? "selected": "";
-            $this->viewData["fntyp_VAL2"] = $this->viewData["fntyp"] === "VA2" ? "selected": "";
-            $this->viewData["fntyp_VAL3"] = $this->viewData["fntyp"] === "VA3" ? "selected": "";
+            $this->viewData["fntyp_VA1"] = $this->viewData["fntyp"] === "VA1" ? "selected": "";
+            $this->viewData["fntyp_VA2"] = $this->viewData["fntyp"] === "VA2" ? "selected": "";
+            $this->viewData["fntyp_VA3"] = $this->viewData["fntyp"] === "VA3" ? "selected": "";
 
             $this->viewData["modedsc"] = sprintf(
                 $this->modes[$this->viewData["mode"]],

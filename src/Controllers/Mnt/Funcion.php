@@ -6,7 +6,7 @@ use Exception;
 use Views\Renderer;
 
 class Funciones extends PublicController{
-    private $redirectTo = "index.php?page=Mnt-Funciones";
+    private $redirectTo = "index.php?page=Mnt_Funciones";
     private $viewData = array(
         "mode" => "DSP",
         "modedsc" => "",
@@ -64,7 +64,7 @@ class Funciones extends PublicController{
         }
         if($this->viewData["mode"] !== "INS") {
             if(isset($_GET['fncod'])){
-                $this->viewData["fncod"] = intval($_GET["fncod"]);
+                $this->viewData["fncod"] = $_GET["fncod"];
             } else {
                 throw new Exception("Id not found on Query Params");
             }
@@ -133,10 +133,10 @@ class Funciones extends PublicController{
             throw new Exception("mode not present in form");
         }
         if(isset($_POST["fncod"])){
-            if(($this->viewData["mode"] !== "INS" && intval($_POST["fncod"])<=0)){
+            if(($this->viewData["mode"] !== "INS" && ($_POST["fncod"])<=0)){
                 throw new Exception("fncod is not Valid");
             }
-            if($this->viewData["fncod"]!== intval($_POST["fncod"])){
+            if($this->viewData["fncod"]!== $_POST["fncod"]){
                 throw new Exception("fncod value is different from query");
             }
         }else {

@@ -69,10 +69,6 @@
             </select>
         </section>
 
-        <section class="row">
-            <label for="clientusercreates" class="col-4">User Creates</label>
-            <input type="text" {{readonly}} name="clientusercreates" value="{{clientusercreates}}" maxlength="45" />
-        </section>
         {{if has_errors}}
         <section>
             <ul>

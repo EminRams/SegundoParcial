@@ -48,7 +48,7 @@ class Funciones extends Table
         return $rowsUpdated;
     }
 
-    public static function delete(int $fncod)
+    public static function delete(string $fncod)
     {
         $sqlstr = "DELETE from funciones where fncod = :fncod;";
         $rowsDeleted = self::executeNonQuery(
@@ -69,7 +69,7 @@ class Funciones extends Table
     {
     }
 
-    public static function findById(int $fncod)
+    public static function findById(string $fncod)
     {
         $sqlstr = "SELECT * from funciones where fncod = :fncod;";
         $row = self::obtenerUnRegistro(

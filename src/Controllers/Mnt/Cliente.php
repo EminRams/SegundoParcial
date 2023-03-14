@@ -230,7 +230,6 @@ class Cliente extends PublicController
                     $this->viewData["clientIdnumber"],
                     $this->viewData["clientbio"],
                     $this->viewData["clientstatus"],
-                    $this->viewData["clientusercreates"],
                 );
                 if ($inserted > 0) {
                     \Utilities\Site::redirectToWithMsg(
@@ -249,7 +248,6 @@ class Cliente extends PublicController
                     $this->viewData["clientIdnumber"],
                     $this->viewData["clientbio"],
                     $this->viewData["clientstatus"],
-                    $this->viewData["clientusercreates"],
                     $this->viewData["clientid"],
                 );
                 if ($updated > 0) {

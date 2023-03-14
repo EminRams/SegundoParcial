@@ -9,10 +9,11 @@ use Views\Renderer;
 
 class Rol extends PublicController
 {
-    private $redirectTo = "index.php?page=Mnt-Rol";
+    private $redirectTo = "index.php?page=Mnt-Roles";
     private $viewData = array(
         "mode" => "DSP",
         "modedsc" => "",
+
         "rolescod" => "",
         "rolesdsc" => "",
         "rolesest" => "",
@@ -24,6 +25,7 @@ class Rol extends PublicController
         "has_errors" => false,
         "show_action" => true,
         "readonly" => false,
+        "cod_UPD" => true,
         "xssToken" => ""
     );
     private $modes = array(
@@ -48,8 +50,8 @@ class Rol extends PublicController
             error_log(sprintf("Controller/Mnt/Rol ERROR: %s", $error->getMessage()));
             \Utilities\Site::redirectToWithMsg(
                 $this->redirectTo,
-                sprintf("Algo Inesperado Sucedió. Intente de Nuevo.". "Controller/Mnt/Rol ERROR: %s", $error->getMessage())
-                
+                sprintf("Algo Inesperado Sucedió. Intente de Nuevo." . "Controller/Mnt/Rol ERROR: %s", $error->getMessage())
+
             );
         }
 
@@ -90,7 +92,7 @@ class Rol extends PublicController
         //Values
         //ROL ID
         if (isset($_POST["rolescod"])) {
-            if (($this->viewData["mode"] !== "INS" && ($_POST["rolescod"]) <= 0)) {
+            if (($this->viewData["mode"] !== "INS" && ($_POST["rolescod"]) == "")) {
                 throw new Exception("rolescod is not Valid");
             }
             // if ($this->viewData["rolescod"] !== ($_POST["rolescod"])) {
@@ -148,7 +150,7 @@ class Rol extends PublicController
                 $inserted = \Dao\Mnt\Roles::insert(
                     $this->viewData["rolescod"],
                     $this->viewData["rolesdsc"],
-                    $this->viewData["rolesest"],
+                    $this->viewData["rolesest"]
                 );
                 if ($inserted > 0) {
                     \Utilities\Site::redirectToWithMsg(
@@ -161,7 +163,7 @@ class Rol extends PublicController
                 $updated = \Dao\Mnt\Roles::update(
                     $this->viewData["rolescod"],
                     $this->viewData["rolesdsc"],
-                    $this->viewData["rolesest"],
+                    $this->viewData["rolesest"]
                 );
                 if ($updated > 0) {
                     \Utilities\Site::redirectToWithMsg(
@@ -207,6 +209,9 @@ class Rol extends PublicController
             );
             if (in_array($this->viewData["mode"], array("DSP", "DEL"))) {
                 $this->viewData["readonly"] = "readonly";
+            }
+            if (in_array($this->viewData["mode"], array("UPD"))) {
+                $this->viewData["cod_UPD"] = "readonly";
             }
             if ($this->viewData["mode"] === "DSP") {
                 $this->viewData["show_action"] = false;

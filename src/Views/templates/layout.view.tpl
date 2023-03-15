@@ -28,6 +28,9 @@
       <ul>
         <li><a href="index.php?page=index"><i class="fas fa-home"></i>&nbsp;Inicio</a></li>
         <li><a href="index.php?page=sec_login"><i class="fas fa-sign-in-alt"></i>&nbsp;Iniciar Sesión</a></li>
+        <li><a href="index.php?page=Mnt-Funciones"><i class="fas fa-sign-in-alt"></i>&nbsp;Funciones</a></li>
+        <li><a href="index.php?page=Mnt-Roles"><i class="fas fa-sign-in-alt"></i>&nbsp;Roles</a></li>
+        <li><a href="index.php?page=Mnt-Users"><i class="fas fa-sign-in-alt"></i>&nbsp;Users</a></li>
         <li><a href="index.php?page=sec_register"><i class="fas fa-user-plus"></i>&nbsp;Crear Cuenta</a></li>
       </ul>
     </nav>

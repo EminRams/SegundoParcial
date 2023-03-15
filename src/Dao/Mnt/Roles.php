@@ -20,14 +20,16 @@ class Roles extends Table
         string $rolesdsc,
         string $rolesest,
         string $rolescod
-    ) {
-        $sqlstr = "UPDATE roles set rolesdsc = :rolesdsc, rolesest = :rolesest where rolescod=:rolescod;";
+    )
+    {
+        $sqlstr = "UPDATE roles set rolesdsc = :rolesdsc, rolesest = :rolesest where rolescod = :rolescod;";
         $rowsUpdated = self::executeNonQuery(
             $sqlstr,
             array(
-                "rolesdsc" => $rolesdsc, 
+                "rolesdsc" => $rolesdsc,
                 "rolesest" => $rolesest,
-                "rolescod" => $rolescod 
+                "rolescod" => $rolescod
+
             )
         );
         return $rowsUpdated;

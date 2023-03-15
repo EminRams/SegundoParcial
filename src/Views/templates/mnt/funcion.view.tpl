@@ -1,6 +1,7 @@
 <h1>{{modedsc}}</h1>
 <section class="row">
     <form action="index.php?page=Mnt_Funcion&mode={{mode}}&fncod={{fncod}}" method="POST" class="col-6 col-3-offset">
+
         <section class="row">
             <input type="hidden" id="mode" name="mode" value="{{mode}}" />
             <label for="fncod" class="col-4">Codigo</label>

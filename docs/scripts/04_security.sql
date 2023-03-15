@@ -8,7 +8,7 @@ CREATE TABLE `usuario` (
   `userpswdexp` datetime DEFAULT NULL,
   `userest` char(3) DEFAULT NULL,
   `useractcod` varchar(128) DEFAULT NULL,
-  `userpswdchg` varchar(128) DEFAULT NULL,
+  `userpswdchg` varchar(128) DEFAULT NULL, -- OMITIR
   `usertipo` char(3) DEFAULT NULL COMMENT 'Tipo de Usuario, Normal, Consultor o Cliente',
   PRIMARY KEY (`usercod`),
   UNIQUE KEY `useremail_UNIQUE` (`useremail`),

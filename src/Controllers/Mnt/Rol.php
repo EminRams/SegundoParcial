@@ -3,7 +3,6 @@
 namespace Controllers\Mnt;
 
 use Controllers\PublicController;
-use DateTime;
 use Exception;
 use Views\Renderer;
 
@@ -69,7 +68,7 @@ class Rol extends PublicController
         }
         if ($this->viewData["mode"] !== "INS") {
             if (isset($_GET['rolescod'])) {
-                $this->viewData["rolescod"] = intval($_GET["rolescod"]);
+                $this->viewData["rolescod"] = $_GET["rolescod"];
             } else {
                 throw new Exception("Id not found on Query Params");
             }

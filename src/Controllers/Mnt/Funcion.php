@@ -5,15 +5,20 @@ use Controllers\PublicController;
 use Exception;
 use Views\Renderer;
 
-class Funciones extends PublicController{
-    private $redirectTo = "index.php?page=Mnt_Funciones";
+class Funcion extends PublicController{
+    private $redirectTo = "index.php?page=Mnt-Funciones";
     private $viewData = array(
         "mode" => "DSP",
         "modedsc" => "",
-        "fncod" => 0,
+        "fncod" => "",
         "fndsc" => "",
         "fnest" => "ACT",
-        "fntyp" => "",
+        "fntyp" => "VA1",
+
+        "fntyp_VA1" => "selected",
+        "fntyp_VA2" => "",
+        "fntyp_VA3" => "",
+
         "fnest_ACT" => "selected",
         "fnest_INA" => "",
         "fndsc_error"=> "",
@@ -113,13 +118,15 @@ class Funciones extends PublicController{
             }
         }
         // FUNCION TYPE
-        if(isset($_POST["fntyp"])){
-            if(\Utilities\Validators::IsEmpty($_POST["fntyp"])){
-                $this->viewData["has_errors"] = true;
-            }
-        } else {
-            throw new Exception("fntyp not present in form");
-        }
+        
+        // if(isset($_POST["fntyp"])){
+        //     if(\Utilities\Validators::IsEmpty($_POST["fntyp"])){
+        //         $this->viewData["has_errors"] = true;
+        //     }
+        // } else {
+        //     throw new Exception("fntyp not present in form");
+        // }
+
         //VALUES
 
         if(isset($_POST["mode"])){
@@ -133,22 +140,27 @@ class Funciones extends PublicController{
             throw new Exception("mode not present in form");
         }
         if(isset($_POST["fncod"])){
-            if(($this->viewData["mode"] !== "INS" && ($_POST["fncod"])<=0)){
+            if(($this->viewData["mode"] !== "INS" && $_POST["fncod"] == null)){
                 throw new Exception("fncod is not Valid");
             }
-            if($this->viewData["fncod"]!== $_POST["fncod"]){
-                throw new Exception("fncod value is different from query");
-            }
+            // if($this->viewData["fncod"]!== intval($_POST["fncod"])){
+            //     throw new Exception("fncod value is different from query");
+            // }
         }else {
             throw new Exception("fncod not present in form");
         }
 
         $this->viewData["fncod"] = $_POST["fncod"];
         $this->viewData["fndsc"] = $_POST["fndsc"];
-        $this->viewData["fntyp"] = $_POST["fntyp"];
+        
         if($this->viewData["mode"]!=="DEL"){
             $this->viewData["fnest"] = $_POST["fnest"];
         }
+
+        if($this->viewData["mode"]!=="DEL"){
+            $this->viewData["fntyp"] = $_POST["fntyp"];
+        }
+        
     }
     private function executeAction(){
         switch($this->viewData["mode"]){
@@ -210,6 +222,11 @@ class Funciones extends PublicController{
             \Utilities\ArrUtils::mergeFullArrayTo($tmbFuncionnes, $this->viewData);
             $this->viewData["fnest_ACT"] = $this->viewData["fnest"] === "ACT" ? "selected": "";
             $this->viewData["fnest_INA"] = $this->viewData["fnest"] === "INA" ? "selected": "";
+
+            $this->viewData["fntyp_VA1"] = $this->viewData["fntyp"] === "VA1" ? "selected": "";
+            $this->viewData["fntyp_VA2"] = $this->viewData["fntyp"] === "VA2" ? "selected": "";
+            $this->viewData["fntyp_VA3"] = $this->viewData["fntyp"] === "VA3" ? "selected": "";
+
             $this->viewData["modedsc"] = sprintf(
                 $this->modes[$this->viewData["mode"]],
                 $this->viewData["fndsc"],

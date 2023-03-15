@@ -8,7 +8,7 @@ use Views\Renderer;
 
 class Rol extends PublicController
 {
-    private $redirectTo = "index.php?page=Mnt-Rol";
+    private $redirectTo = "index.php?page=Mnt-Roles";
     private $viewData = array(
         "mode" => "DSP",
         "modedsc" => "",

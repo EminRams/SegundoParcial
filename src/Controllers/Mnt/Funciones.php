@@ -12,7 +12,7 @@ class Funciones extends PublicController {
             "delete_enabled"=>true,
             "new_enabled"=>true
         );
-        $viewData["funcion"] = \Dao\Mnt\Funciones::findAll();
+        $viewData["funciones"] = \Dao\Mnt\Funciones::findAll();
         Renderer::render('mnt/funciones', $viewData);
     }
 }

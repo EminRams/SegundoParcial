@@ -32,7 +32,7 @@ class Roles extends Table
         );
         return $rowsUpdated;
     }
-    public static function delete(int $rolescod)
+    public static function delete(string $rolescod)
     {
         $sqlstr = "DELETE from roles where rolescod=:rolescod;";
         $rowsDeleted = self::executeNonQuery(
@@ -51,7 +51,7 @@ class Roles extends Table
     public static function findByFilter()
     {
     }
-    public static function findById(int $rolescod)
+    public static function findById(string $rolescod)
     {
         $sqlstr = "SELECT * from roles where rolescod = :rolescod;";
         $row = self::obtenerUnRegistro(

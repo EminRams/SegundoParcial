@@ -1,4 +1,4 @@
-<h1>Gestión de Categorías</h1>
+<h1>Gestión de Roles</h1>
 <section class="WWFilter">
 
 </section>

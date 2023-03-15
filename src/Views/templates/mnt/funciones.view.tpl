@@ -18,7 +18,7 @@
       </tr>
     </thead>
     <tbody>
-      {{foreach funcion}}
+      {{foreach funciones}}
       <tr>
         <td>{{fncod}}</td>
         <td><a href="index.php?page=mnt_funcion&mode=DSP&fncod={{fncod}}">{{fndsc}}</a></td>
@@ -43,7 +43,7 @@
           {{endif ~delete_enabled}}
         </td>
       </tr>
-      {{endfor funcion}}
+      {{endfor funciones}}
     </tbody>
   </table>
 </section>

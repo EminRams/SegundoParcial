@@ -4,7 +4,7 @@ namespace Controllers\Mnt;
 use Controllers\PublicController;
 use Views\Renderer;
 
-class Funciones extends PublicController {
+class Journals extends PublicController {
     public function run() :void
     {
         $viewData = array(
@@ -12,8 +12,8 @@ class Funciones extends PublicController {
             "delete_enabled"=>true,
             "new_enabled"=>true
         );
-        $viewData["funciones"] = \Dao\Mnt\Funciones::findAll();
-        Renderer::render('mnt/funciones', $viewData);
+        $viewData["journals"] = \Dao\Mnt\Journals::findAll();
+        Renderer::render('mnt/journals', $viewData);
     }
 }
 ?>

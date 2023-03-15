@@ -1,18 +1,22 @@
 <h1>{{modedsc}}</h1>
 <section class="row">
-    <form action="index.php?page=Mnt_funcion&mode={{mode}}&fncod={{fncod}}" method="POST" class="col-6 col-3-offset">
+    <form action="index.php?page=Mnt_Funcion&mode={{mode}}&fncod={{fncod}}" method="POST" class="col-6 col-3-offset">
+
         <section class="row">
-            <label for="fncod" class="col-4">Código</label>
-            <input type="hidden" id="fncod" name="fncod" value="{{fncod}}" />
             <input type="hidden" id="mode" name="mode" value="{{mode}}" />
+            <label for="fncod" class="col-4">Codigo</label>
             <input type="hidden" name="xssToken" value="{{xssToken}}" />
-            <input type="text" readonly name="fncoddummy" value="{{fncod}}" />
+            <input type="text" {{fn_UPD}} {{readonly}} name="fncod" value="{{fncod}}" maxlength="45"
+                placeholder="Codigo de función" />
+            {{if rolescod_error}}
+            <span class="error col-12">{{rolescod_error}}</span>
+            {{endif rolescod_error}}
         </section>
 
         <section class="row">
             <label for="fndsc" class="col-4">Descripción</label>
             <input type="text" {{readonly}} name="fndsc" value="{{fndsc}}" maxlength="45"
-                placeholder="Nombre de Categoría" />
+                placeholder="Descripción de la función" />
             {{if fndsc_error}}
             <span class="error col-12">{{fndsc_error}}</span>
             {{endif fndsc_error}}
@@ -27,9 +31,11 @@
         </section>
 
         <section class="row">
-            <label for="fntyp" class="col-4">Tipo</label>
-            <input type="text" {{readonly}} name="fntyp" value="{{fntyp}}" maxlength="3"
-                placeholder="Tipo de Función" />
+            <label for="fntyp" class="col-4">Tipo de función</label>
+            <select id="fntyp" name="fntyp" {{if readonly}}disabled{{endif readonly}}>
+                <option value="PGM" {{fntyp_VA1}}>P.G.M</option>
+                <option value="FNC" {{fntyp_VA2}}>F.N.C</option>
+            </select>
         </section>
         {{if has_errors}}
         <section>

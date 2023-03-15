@@ -53,7 +53,19 @@ class Roles extends Table
     public static function findByFilter()
     {
     }
-    public static function findById(int $rolescod)
+    // public static function findById(string $rolescod)
+    // {
+    //     $sqlstr = "SELECT * from roles where rolescod = :rolescod;";
+    //     $row = self::obtenerUnRegistro(
+    //         $sqlstr,
+    //         array(
+    //             "rolescod" => $rolescod
+    //         )
+    //     );
+    //     return $row;
+    // }
+
+    public static function findById(string $rolescod)
     {
         $sqlstr = "SELECT * from roles where rolescod = :rolescod;";
         $row = self::obtenerUnRegistro(

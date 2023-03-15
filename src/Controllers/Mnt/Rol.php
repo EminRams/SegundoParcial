@@ -161,14 +161,14 @@ class Rol extends PublicController
                 break;
             case "UPD":
                 $updated = \Dao\Mnt\Roles::update(
-                    $this->viewData["rolescod"],
                     $this->viewData["rolesdsc"],
-                    $this->viewData["rolesest"]
+                    $this->viewData["rolesest"],
+                    $this->viewData["rolescod"]
                 );
                 if ($updated > 0) {
                     \Utilities\Site::redirectToWithMsg(
                         $this->redirectTo,
-                        "Rol Actualizado Exitosamente"
+                        "Rol Actualizado Exitosamente",
                     );
                 }
                 break;

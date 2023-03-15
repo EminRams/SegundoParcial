@@ -118,13 +118,15 @@ class Funcion extends PublicController{
             }
         }
         // FUNCION TYPE
-        if(isset($_POST["fntyp"])){
-            if(\Utilities\Validators::IsEmpty($_POST["fntyp"])){
-                $this->viewData["has_errors"] = true;
-            }
-        } else {
-            throw new Exception("fntyp not present in form");
-        }
+        
+        // if(isset($_POST["fntyp"])){
+        //     if(\Utilities\Validators::IsEmpty($_POST["fntyp"])){
+        //         $this->viewData["has_errors"] = true;
+        //     }
+        // } else {
+        //     throw new Exception("fntyp not present in form");
+        // }
+
         //VALUES
 
         if(isset($_POST["mode"])){
@@ -138,12 +140,12 @@ class Funcion extends PublicController{
             throw new Exception("mode not present in form");
         }
         if(isset($_POST["fncod"])){
-            if(($this->viewData["mode"] !== "INS" && intval($_POST["fncod"])<=0)){
+            if(($this->viewData["mode"] !== "INS" && $_POST["fncod"] == null)){
                 throw new Exception("fncod is not Valid");
             }
-            if($this->viewData["fncod"]!== intval($_POST["fncod"])){
-                throw new Exception("fncod value is different from query");
-            }
+            // if($this->viewData["fncod"]!== intval($_POST["fncod"])){
+            //     throw new Exception("fncod value is different from query");
+            // }
         }else {
             throw new Exception("fncod not present in form");
         }
@@ -153,6 +155,9 @@ class Funcion extends PublicController{
         
         if($this->viewData["mode"]!=="DEL"){
             $this->viewData["fnest"] = $_POST["fnest"];
+        }
+
+        if($this->viewData["mode"]!=="DEL"){
             $this->viewData["fntyp"] = $_POST["fntyp"];
         }
         

@@ -27,11 +27,11 @@
         </section>
 
         <section class="row">
-            <label for="fntyp" class="col-4">Estado</label>
+            <label for="fntyp" class="col-4">Tipo de función</label>
             <select id="fntyp" name="fntyp" {{if readonly}}disabled{{endif readonly}}>
-                <option value="VA1" {{fntyp_VAl1}}>Opcion 1</option>
-                <option value="VA2" {{fntyp_VAl2}}>Opcion 2</option>
-                <option value="VA3" {{fntyp_VAl3}}>Opcion 3</option>
+                <option value="VA1" {{fntyp_VA1}}>Opcion 1</option>
+                <option value="VA2" {{fntyp_VA2}}>Opcion 2</option>
+                <option value="VA3" {{fntyp_VA3}}>Opcion 3</option>
             </select>
         </section>
         {{if has_errors}}

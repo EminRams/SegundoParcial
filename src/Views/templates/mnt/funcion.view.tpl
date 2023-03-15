@@ -3,11 +3,14 @@
     <form action="index.php?page=Mnt_Funcion&mode={{mode}}&fncod={{fncod}}" method="POST" class="col-6 col-3-offset">
 
         <section class="row">
-            <label for="fncod" class="col-4">Código</label>
-            <input type="hidden" id="fncod" name="fncod" value="{{fncod}}" />
             <input type="hidden" id="mode" name="mode" value="{{mode}}" />
+            <label for="fncod" class="col-4">Codigo</label>
             <input type="hidden" name="xssToken" value="{{xssToken}}" />
-            <input type="text"  name="fncoddummy" value="{{fncod}}" />
+            <input type="text" {{fn_UPD}} {{readonly}} name="fncod" value="{{fncod}}" maxlength="45"
+                placeholder="Codigo de función" />
+            {{if rolescod_error}}
+            <span class="error col-12">{{rolescod_error}}</span>
+            {{endif rolescod_error}}
         </section>
 
         <section class="row">
@@ -30,9 +33,8 @@
         <section class="row">
             <label for="fntyp" class="col-4">Tipo de función</label>
             <select id="fntyp" name="fntyp" {{if readonly}}disabled{{endif readonly}}>
-                <option value="VA1" {{fntyp_VA1}}>Opcion 1</option>
-                <option value="VA2" {{fntyp_VA2}}>Opcion 2</option>
-                <option value="VA3" {{fntyp_VA3}}>Opcion 3</option>
+                <option value="PGM" {{fntyp_VA1}}>P.G.M</option>
+                <option value="FNC" {{fntyp_VA2}}>F.N.C</option>
             </select>
         </section>
         {{if has_errors}}

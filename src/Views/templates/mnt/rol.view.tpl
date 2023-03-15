@@ -1,14 +1,13 @@
 <h1>{{modedsc}}</h1>
 <section class="row">
     <form action="index.php?page=Mnt_Rol&mode={{mode}}&rolescod={{rolescod}}" method="POST" class="col-6 col-3-offset">
-        <section class="row">
-            <input type="hidden" id="mode" name="mode" value="{{mode}}" />
-            <input type="hidden" name="xssToken" value="{{xssToken}}" />
-        </section>
+        
 
-            <section class="row">
+        <section class="row">
+             <input type="hidden" id="mode" name="mode" value="{{mode}}" />
             <label for="rolescod" class="col-4">Codigo</label>
-            <input type="text" {{readonly}} name="rolescod" value="{{rolescod}}" maxlength="45"
+            <input type="hidden" name="xssToken" value="{{xssToken}}" />
+            <input type="text" {{cod_UPD}} {{readonly}} name="rolescod" value="{{rolescod}}" maxlength="45"
                 placeholder="Codigo del Rol" />
             {{if rolescod_error}}
             <span class="error col-12">{{rolescod_error}}</span>

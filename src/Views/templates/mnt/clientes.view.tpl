@@ -16,7 +16,6 @@
         <th>Biografía</th>
         <th>Estado</th>
         <th>Fecha de Creación</th>
-        <th>User Creates</th>
         <th>
           {{if new_enabled}}
           <button id="btnAdd">Nuevo</button>
@@ -37,7 +36,6 @@
         <td>{{clientbio}}</td>
         <td>{{clientstatus}}</td>
         <td>{{clientdatecrt}}</td>
-        <td>{{clientusercreates}}</td>
         <td>
           {{if ~edit_enabled}}
           <form action="index.php" method="get">

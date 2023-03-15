@@ -23,7 +23,6 @@ class Cliente extends PublicController
         "clientbio" => "",
         "clientstatus" => "",
         "clientdatecrt" => "",
-        "clientusercreates" => 0,
 
         "clientgender_MAL" => "selected",
         "clientgender_FEM" => "",
@@ -64,21 +63,7 @@ class Cliente extends PublicController
                 "Algo Inesperado Sucedió. Intente de Nuevo."
             );
         }
-        /*
-        1) Captura de Valores Iniciales QueryParams -> Parámetros de Query ? 
-            https://ax.ex.com/index.php?page=abc&mode=UPD&id=1029
-        2) Determinamos el método POST GET
-        3) Procesar la Entrada
-            3.1) Si es un POST
-            3.2) Capturar y Validara datos del formulario
-            3.3) Según el modo realizar la acción solicitada
-            3.4) Notificar Error si hay
-            3.5) Redirigir a la Lista
-            4.1) Si es un GET
-            4.2) Obtener valores de la DB sin no es INS
-            4.3) Mostrar Valores
-        4) Renderizar
-        */
+
     }
     private function page_loaded()
     {
@@ -209,7 +194,6 @@ class Cliente extends PublicController
         $this->viewData["clientemail"] = $_POST["clientemail"];
         $this->viewData["clientIdnumber"] = $_POST["clientIdnumber"];
         $this->viewData["clientbio"] = $_POST["clientbio"];
-        $this->viewData["clientusercreates"] = $_POST["clientusercreates"];
 
         if ($this->viewData["mode"] !== "DEL") {
             $this->viewData["clientgender"] = $_POST["clientgender"];

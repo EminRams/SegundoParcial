@@ -36,7 +36,7 @@ class Clientes extends Table
                 "clientIdnumber" => $clientIdnumber,
                 "clientbio" => $clientbio,
                 "clientstatus" => $clientstatus,
-                "clientdatecrt" => date('Y-m-d')
+                "clientdatecrt" => date("Y-m-d H:i:s")
             )
         );
         return $rowsInserted;

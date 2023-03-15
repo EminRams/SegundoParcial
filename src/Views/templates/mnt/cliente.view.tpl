@@ -11,7 +11,7 @@
         </section>
         <section class="row">
             <label for="clientname" class="col-4">Cliente</label>
-            <input type="text" {{readonly}} name="clientname" value="{{clientname}}" maxlength="45"
+            <input type="text" {{readonly}} name="clientname" value="{{clientname}}" maxlength="128"
                 placeholder="Nombre del Cliente" />
             {{if clientname_error}}
             <span class="error col-12">{{clientname_error}}</span>

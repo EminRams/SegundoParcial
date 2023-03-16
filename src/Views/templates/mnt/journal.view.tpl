@@ -39,7 +39,7 @@
 
         <section class="row">
             <label for="journal_amount" class="col-4">Monto</label>
-            <input type="text" {{readonly}} name="journal_amount" value="{{journal_amount}}" maxlength="45"
+            <input type="number" step="0.01" {{readonly}} name="journal_amount" value="{{journal_amount}}" maxlength="45"
                 placeholder="Monto del Diario $" />
             {{if journal_amount_error}}
             <span class="error col-12">{{journal_amount_error}}</span>

@@ -2,9 +2,7 @@
 
 namespace Dao\Mnt;
 
-use Dao\Dao;
 use Dao\Table;
-use DateTime;
 
 class Journals extends Table
 {
@@ -77,10 +75,6 @@ class Journals extends Table
     {
         $sqlstr = "SELECT * from journals;";
         return self::obtenerRegistros($sqlstr, array());
-    }
-
-    public static function findByFilter()
-    {
     }
 
     public static function findById(int $journal_id)

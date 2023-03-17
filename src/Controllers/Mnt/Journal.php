@@ -3,9 +3,7 @@
 namespace Controllers\Mnt;
 
 use Controllers\PublicController;
-use DateTime;
 use Exception;
-use Twig\Node\ModuleNode;
 use Views\Renderer;
 
 class Journal extends PublicController
@@ -126,9 +124,6 @@ class Journal extends PublicController
             throw new Exception("journal_date not present in form");
         }
 
-
-
-
         // JOURNAL AMOUNT
         if (isset($_POST["journal_amount"])) {
             if (($this->viewData["mode"] !== "INS" && floatval($_POST["journal_amount"]) <= 0)) {
@@ -138,7 +133,7 @@ class Journal extends PublicController
                 $this->viewData["has_errors"] = true;
                 $this->viewData["journal_amount_error"] = "El monto no puede ir vacío!";
             }
-            if (floatval($_POST["journal_amount"] <= 0)) {
+            else if (floatval($_POST["journal_amount"] <= 0)) {
                 $this->viewData["has_errors"] = true;
                 $this->viewData["journal_amount_error"] = "El monto debe ser mayor a Cero";
             }
